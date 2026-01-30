@@ -717,9 +717,20 @@
         }
 
         @media (max-width: 1024px) {
+            .question-card {
+                max-width: 90%;
+                padding: 30px;
+            }
+
+            .participant-setup {
+                max-width: 90%;
+                padding: 30px;
+            }
+
             .tables-container {
                 flex-direction: column;
                 align-items: center;
+                max-width: 90%;
             }
             
             .table-wrapper {
@@ -727,27 +738,157 @@
                 max-width: 700px;
             }
 
-            .question-content-wrapper {
+            .top-row,
+            .bottom-row {
                 flex-direction: column;
             }
 
-            .question-content-wrapper .question-text {
-                flex: 1;
-                width: 100%;
-                margin-bottom: 15px;
-                font-size: 1.3rem;
-                padding: 25px;
-            }
-
-            .question-content-wrapper .answer-container {
+            .top-row .question-text,
+            .top-row .voting-section {
                 flex: 1;
                 width: 100%;
             }
 
-            .question-content-wrapper .answer p {
-                font-size: 1.15rem;
+            .bottom-row .answer-container,
+            .bottom-row .sources {
+                flex: 1;
+                width: 100%;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+
+            .answer {
+                padding: 20px;
+            }
+
+            .sources {
+                padding: 20px;
+            }
+
+            .participant-setup h2 {
+                font-size: 1.5rem;
+            }
+
+            .participant-input {
+                flex-direction: column;
+            }
+
+            .participant-input input {
+                width: 100%;
+            }
+
+            .add-btn {
+                width: 100%;
+                padding: 12px 20px;
+            }
+
+            .voting-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .start-button {
+                padding: 15px 40px;
+                font-size: 1.2rem;
+            }
+
+            .restart-button {
+                padding: 15px 40px;
+                font-size: 1rem;
             }
         }
+
+        @media (max-width: 600px) {
+            .question-card {
+                max-width: 95%;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .participant-setup {
+                max-width: 95%;
+                padding: 20px;
+            }
+
+            .tables-container {
+                max-width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .participant-setup h2 {
+                font-size: 1.2rem;
+            }
+
+            .question-title {
+                font-size: 1.3rem;
+            }
+
+            .question-text {
+                font-size: 0.95rem;
+                padding: 15px;
+            }
+
+            .answer-label {
+                font-size: 1.1rem;
+            }
+
+            .answer p {
+                font-size: 0.9rem;
+            }
+
+            .sources-title {
+                font-size: 0.85rem;
+            }
+
+            .sources a {
+                font-size: 0.8rem;
+                margin-bottom: 3px;
+            }
+
+            .voting-section h4 {
+                font-size: 1rem;
+            }
+
+            .voting-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 5px;
+            }
+
+            .voter-item {
+                padding: 5px;
+                font-size: 0.75rem;
+            }
+
+            .vote-btn {
+                padding: 5px 8px;
+                font-size: 0.7rem;
+            }
+
+            .buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .start-button,
+            .restart-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .keyboard-hint {
+                display: none;
+            }
+        }
+    </style>
     </style>
 </head>
 <body>
