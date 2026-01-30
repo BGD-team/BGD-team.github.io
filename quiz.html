@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Британские теории заговора — Правда или Вымысел?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: 
+                linear-gradient(135deg, rgba(0, 36, 125, 0.85) 0%, rgba(26, 26, 58, 0.9) 50%, rgba(26, 10, 46, 0.85) 100%),
+                url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjAgMzAiIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYwMCI+CjxjbGlwUGF0aCBpZD0icyI+Cgk8cGF0aCBkPSJNMCwwIHYzMCBoNjAgdi0zMCB6Ii8+CjwvY2xpcFBhdGg+CjxjbGlwUGF0aCBpZD0idCI+Cgk8cGF0aCBkPSJNMzAsMTUgaDMwIHYxNSB6IHYxNSBoLTMwIHogaC0zMCB2LTE1IHogdi0xNSBoMzAgeiIvPgo8L2NsaXBQYXRoPgo8ZyBjbGlwLXBhdGg9InVybCgjcykiPgoJPHBhdGggZD0iTTAsMCB2MzAgaDYwIHYtMzAgeiIgZmlsbD0iIzAxMjE2OSIvPgoJPHBhdGggZD0iTTAsMCBMNjAsMzAgTTYwLDAgTDAsMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI2Ii8+Cgk8cGF0aCBkPSJNMCwwIEw2MCwzMCBNNjAsMCBMMCwzMCIgY2xpcC1wYXRoPSJ1cmwoI3QpIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNCIvPgoJPHBhdGggZD0iTTMwLDAgdjMwIE0wLDE1IGg2MCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEwIi8+Cgk8cGF0aCBkPSJNMzAsMCB2MzAgTTAsMTUgaDYwIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNiIvPgo8L2c+Cjwvc3ZnPgo=');
+            background-size: cover, cover;
+            background-position: center, center;
+            background-attachment: fixed, fixed;
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Стартовый экран */
+        .start-screen h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #cf142b, #ffffff, #00247d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .start-screen .subtitle {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .start-screen .rules {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 30px 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .start-screen .rules h3 {
+            color: #cf142b;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .start-screen .rules p {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
+        .start-button {
+            background: linear-gradient(135deg, #cf142b, #00247d);
+            border: none;
+            color: white;
+            padding: 20px 60px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .start-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(207, 20, 43, 0.5);
+        }
+
+        /* Карточка вопроса */
+        .question-card {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 25px;
+            padding: 50px;
+            max-width: 80%;
+            width: 100%;
+            border-left: 8px solid #cf142b;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #cf142b, #00247d);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .progress {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .question-title {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .flag {
+            font-size: 2rem;
+        }
+
+        .question-text {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        /* Horizontal layout - 50/50 split */
+        .top-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .top-row .question-text {
+            flex: 1;
+            margin-bottom: 0;
+            min-width: 0;
+        }
+
+        .top-row .voting-section {
+            flex: 1;
+            min-width: 0;
+            display: block !important;
+            margin-top: 0;
+        }
+
+        .bottom-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .bottom-row .answer-container {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .bottom-row .answer-container .answer {
+            margin-top: 0;
+        }
+
+        .bottom-row .sources {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Ответ */
+        .answer-container {
+            display: none;
+        }
+
+        .answer-container.revealed {
+            display: block !important;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .answer {
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .answer.true {
+            background: rgba(46, 204, 113, 0.3);
+            border: 2px solid #2ecc71;
+        }
+
+        .answer.false {
+            background: rgba(231, 76, 60, 0.3);
+            border: 2px solid #e74c3c;
+        }
+
+        .answer.partial {
+            background: rgba(243, 156, 18, 0.3);
+            border: 2px solid #f39c12;
+        }
+
+        .answer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .answer-label {
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .answer-label.true { color: #2ecc71; }
+        .answer-label.false { color: #e74c3c; }
+        .answer-label.partial { color: #f39c12; }
+
+        .answer p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        .sources {
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            border-top: 3px solid #3498db;
+        }
+
+        .sources-title {
+            font-weight: bold;
+            color: #bbb;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .sources a {
+            display: block;
+            color: #5dade2;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+
+        .sources a:hover {
+            color: #85c1e9;
+            text-decoration: underline;
+        }
+
+        /* Кнопки навигации */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .btn {
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-reveal {
+            background: linear-gradient(135deg, #cf142b, #00247d);
+            color: white;
+        }
+
+        .btn-reveal:hover {
+            box-shadow: 0 5px 25px rgba(207, 20, 43, 0.5);
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            display: none;
+        }
+
+        .btn-next.visible {
+            display: inline-block;
+        }
+
+        .btn-next:hover {
+            box-shadow: 0 5px 25px rgba(46, 204, 113, 0.5);
+        }
+
+        .btn-prev {
+            background: rgba(255, 255, 255, 0.25);
+            color: #aaa;
+            border: 1px solid #555;
+        }
+
+        .btn-prev:hover {
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Финальный экран */
+        .end-screen h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #2ecc71, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .summary-table {
+            width: 100%;
+            max-width: 700px;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .summary-table th {
+            background: rgba(207, 20, 43, 0.5);
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .badge.true { background: #2ecc71; color: #000; }
+        .badge.false { background: #e74c3c; color: #fff; }
+        .badge.partial { background: #f39c12; color: #000; }
+
+        .restart-button {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            border: none;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .restart-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(155, 89, 182, 0.5);
+        }
+
+        /* Индикатор прогресса */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #cf142b, #00247d);
+            transition: width 0.3s ease;
+        }
+
+        /* Клавиатурные подсказки */
+        .keyboard-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .keyboard-hint kbd {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 0 3px;
+        }
+
+        /* Participant setup */
+        .participant-setup {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 80%;
+            width: 100%;
+        }
+
+        .participant-setup h2 {
+            font-size: 2rem;
+            margin-bottom: 0;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .participant-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .participant-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quick-fill-btn {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            padding: 0;
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: all 0.2s;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .quick-fill-btn:hover {
+            background: transparent;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .participant-input input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #00247d;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+
+        .participant-input .add-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .participant-input .add-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .participant-list {
+            margin: 20px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .participant-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .participant-item span {
+            font-size: 1.1rem;
+        }
+
+        .participant-item button {
+            background: #e74c3c;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .participant-item button:hover {
+            background: #c0392b;
+        }
+
+        /* Voting section */
+        .voting-section {
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            border-top: 3px solid #cf142b;
+            max-height: 60vh;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .voting-section.active {
+            display: block;
+        }
+
+        .voting-section h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 0;
+            z-index: 1;
+        }
+
+        .voting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 8px;
+        }
+
+        .voter-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .voter-item.correct {
+            background: rgba(46, 204, 113, 0.4);
+            border: 2px solid #2ecc71;
+            padding: 5px 8px;
+        }
+
+        .voter-item.incorrect {
+            background: rgba(231, 76, 60, 0.4);
+            border: 2px solid #e74c3c;
+            padding: 5px 8px;
+        }
+
+        .voter-item span {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        .voter-item.correct span {
+            color: #2ecc71;
+            font-size: 0.95rem;
+        }
+
+        .voter-item.incorrect span {
+            color: #e74c3c;
+            font-size: 0.95rem;
+        }
+
+        .vote-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .vote-btn {
+            padding: 6px 12px;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .vote-btn.true {
+            background: rgba(46, 204, 113, 0.3);
+            color: #2ecc71;
+        }
+
+        .vote-btn.true.selected {
+            background: #2ecc71;
+            color: #000;
+            border-color: #27ae60;
+        }
+
+        .vote-btn.false {
+            background: rgba(231, 76, 60, 0.3);
+            color: #e74c3c;
+        }
+
+        .vote-btn.false.selected {
+            background: #e74c3c;
+            color: #fff;
+            border-color: #c0392b;
+        }
+
+        /* Results table */
+        .results-table {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .results-table th {
+            background: rgba(207, 20, 43, 0.5);
+            font-weight: bold;
+        }
+
+        .results-table td.name {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .score-cell {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .score-cell.winner {
+            color: #f39c12;
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+        }
+
+        /* Horizontal layout for final screen */
+        .tables-container {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            max-width: 80%;
+            align-items: flex-start;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .table-wrapper {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .table-wrapper h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .tables-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .table-wrapper {
+                width: 100%;
+                max-width: 700px;
+            }
+
+            .question-content-wrapper {
+                flex-direction: column;
+            }
+
+            .question-content-wrapper .question-text {
+                flex: 1;
+                width: 100%;
+                margin-bottom: 15px;
+                font-size: 1.3rem;
+                padding: 25px;
+            }
+
+            .question-content-wrapper .answer-container {
+                flex: 1;
+                width: 100%;
+            }
+
+            .question-content-wrapper .answer p {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Стартовый экран -->
+    <div class="slide start-screen active" id="slide-0">
+        <h1>🇬🇧 Британские теории заговора</h1>
+        <div class="rules">
+            <h3>📜 Правила игры</h3>
+            <p>Вам будут показаны 10 теорий заговора.<br>
+            Ваша задача — угадать, какие из них оказались правдой,<br>
+            а какие так и остались лишь теориями.</p>
+        </div>
+        <button class="start-button" onclick="nextSlide()">Начать игру 🎯</button>
+    </div>
+
+    <!-- Participant Setup Screen -->
+    <div class="slide" id="slide-participant">
+        <div class="participant-setup">
+            <div class="participant-title-row">
+                <h2>👥 Добавьте участников</h2>
+                <button class="quick-fill-btn" onclick="quickFillParticipants()" title="Quick fill test names">👥</button>
+            </div>
+            <div class="participant-input">
+                <input type="text" id="participantName" placeholder="Введите имя участника" onkeypress="if(event.key==='Enter') addParticipant()">
+                <button class="add-btn" onclick="addParticipant()">Добавить</button>
+            </div>
+            <div class="participant-list" id="participantList"></div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-next visible" onclick="startQuiz()">Начать квиз →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 1 -->
+    <div class="slide" id="slide-1">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">1</div>
+                <div class="progress">1 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>Скандал с Hillsborough</h3>
+            <div class="question-text">
+                «В 1989 году на стадионе Хиллсборо погибли 97 болельщиков «Ливерпуля». Годами ходили слухи, что полиция скрыла свою вину и подделала показания свидетелей. Это правда?»
+            </div>
+            <div class="answer-container" id="answer-1">
+                <div class="answer true">
+                    <div class="answer-label true">✅ ПРАВДА</div>
+                    <p>В 2016 году расследование подтвердило, что полиция систематически изменяла 164 показания свидетелей, чтобы скрыть свои ошибки. Это крупнейшая судебная ошибка в истории Великобритании.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.theguardian.com/football/2016/apr/26/hillsborough-disaster-deadly-mistakes-and-lies-that-lasted-decades" target="_blank">The Guardian — Hillsborough disaster</a>
+                    <a href="https://www.npr.org/2016/04/26/475773213/british-inquest-finds-police-at-fault-for-hillsborough-soccer-stadium-disaster" target="_blank">NPR — British Inquest Finds Police At Fault</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-1">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-1"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-reveal" id="reveal-1" onclick="revealAnswer(1)">Показать ответ</button>
+                <button class="btn btn-next" id="next-1" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 2 -->
+    <div class="slide" id="slide-2">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">2</div>
+                <div class="progress">2 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>Кембриджская пятёрка шпионов</h3>
+            <div class="question-text">
+                «Существовала ли в британской разведке MI5/MI6 сеть советских шпионов, которую годами покрывало правительство?»
+            </div>
+            <div class="answer-container" id="answer-2">
+                <div class="answer true">
+                    <div class="answer-label true">✅ ПРАВДА</div>
+                    <p>Ким Филби, Гай Бёрджесс, Дональд Маклейн, Энтони Блант и Джон Кейрнкросс — пятеро выпускников Кембриджа, работавших на СССР. Энтони Блант был хранителем картин королевы, и его предательство скрывалось до 1979 года.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.theguardian.com/uk-news/2015/oct/23/mi5-mi6-coverup-cambridge-spy-ring-archive-papers" target="_blank">The Guardian — MI5 and MI6 cover-up</a>
+                    <a href="https://spyscape.com/article/a-very-british-scandal-sex-spies-lies-royal-ties" target="_blank">Spyscape — Cambridge Five</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-2">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-2"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-2" onclick="revealAnswer(2)">Показать ответ</button>
+                <button class="btn btn-next" id="next-2" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 3 -->
+    <div class="slide" id="slide-3">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">3</div>
+                <div class="progress">3 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>LIBOR-скандал</h3>
+            <div class="question-text">
+                «Правда ли, что крупнейшие банки мира тайно договаривались манипулировать межбанковскими процентными ставками (LIBOR)?»
+            </div>
+            <div class="answer-container" id="answer-3">
+                <div class="answer true">
+                    <div class="answer-label true">✅ ПРАВДА</div>
+                    <p>С 2003 года банки Barclays, UBS, Deutsche Bank, Royal Bank of Scotland и другие систематически манипулировали ставками LIBOR. В 2012 году это было официально подтверждено, банки заплатили миллиарды долларов штрафов.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://en.wikipedia.org/wiki/Libor_scandal" target="_blank">Wikipedia — Libor scandal</a>
+                    <a href="https://www.cfr.org/backgrounders/understanding-libor-scandal" target="_blank">CFR — Understanding the Libor Scandal</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-3">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-3"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-3" onclick="revealAnswer(3)">Показать ответ</button>
+                <button class="btn btn-next" id="next-3" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 4 -->
+    <div class="slide" id="slide-4">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">4</div>
+                <div class="progress">4 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>Прослушка телефонов Мёрдока</h3>
+            <div class="question-text">
+                «Правда ли, что британские таблоиды империи Руперта Мёрдока массово прослушивали телефоны знаменитостей, политиков и даже жертв преступлений?»
+            </div>
+            <div class="answer-container" id="answer-4">
+                <div class="answer true">
+                    <div class="answer-label true">✅ ПРАВДА</div>
+                    <p>Газета News of the World систематически взламывала голосовую почту сотен людей. Редактор Энди Коулсон был осуждён, газета закрыта в 2011 году, прошло масштабное расследование Левесона.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.bbc.co.uk/news/uk-24894403" target="_blank">BBC — Phone-hacking trial explained</a>
+                    <a href="https://en.wikipedia.org/wiki/News_of_the_World_royal_phone_hacking_scandal" target="_blank">Wikipedia — Phone hacking scandal</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-4">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-4"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-4" onclick="revealAnswer(4)">Показать ответ</button>
+                <button class="btn btn-next" id="next-4" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 5 -->
+    <div class="slide" id="slide-5">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">5</div>
+                <div class="progress">5 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>Скандал Post Office Horizon</h3>
+            <div class="question-text">
+                «Правда ли, что британская почта засадила в тюрьму сотни невиновных почтмейстеров, зная, что ошибки в их счетах вызваны сбоями компьютерной системы?»
+            </div>
+            <div class="answer-container" id="answer-5">
+                <div class="answer true">
+                    <div class="answer-label true">✅ ПРАВДА</div>
+                    <p>С 1999 по 2015 год более 900 почтмейстеров были осуждены за кражи, которых не совершали. Post Office знала о багах в системе Horizon (от Fujitsu) с 2010 года, но продолжала преследования. Это крупнейшая судебная ошибка в истории Великобритании.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.theguardian.com/business/2024/jan/07/what-is-the-post-office-horizon-it-scandal-all-about" target="_blank">The Guardian — Post Office Horizon scandal</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-5">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-5"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-5" onclick="revealAnswer(5)">Показать ответ</button>
+                <button class="btn btn-next" id="next-5" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 6 -->
+    <div class="slide" id="slide-6">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">6</div>
+                <div class="progress">6 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>Смерть доктора Дэвида Келли</h3>
+            <div class="question-text">
+                «В 2003 году эксперт по оружию массового уничтожения доктор Дэвид Келли был найден мёртвым после того, как раскрыл журналистам, что правительство Тони Блэра преувеличило угрозу иракского ОМУ. Правда ли, что его убили спецслужбы?»
+            </div>
+            <div class="answer-container" id="answer-6">
+                <div class="answer false">
+                    <div class="answer-label false">❌ НЕ ПОДТВЕРЖДЕНО</div>
+                    <p>Официальное расследование (доклад Хаттона) признало смерть самоубийством. Однако группа врачей заявила, что раны на запястье не могли привести к смерти. Полноценное коронерское расследование так и не было проведено. Теория остаётся популярной, но доказательств убийства нет.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.reuters.com/article/world/us/iraq-weapons-inspectors-death-was-suicide-uk-files-idUSTRE69L1S0/" target="_blank">Reuters — Death was suicide</a>
+                    <a href="https://hansard.parliament.uk/commons/2011-06-09/debates/11060943000003/DrDavidKelly" target="_blank">UK Parliament — Dr David Kelly</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-6">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-6"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-6" onclick="revealAnswer(6)">Показать ответ</button>
+                <button class="btn btn-next" id="next-6" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 7 -->
+    <div class="slide" id="slide-7">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">7</div>
+                <div class="progress">7 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>«Титаник» подменили на «Олимпик»</h3>
+            <div class="question-text">
+                «Правда ли, что "Титаник" был специально потоплен, потому что на самом деле это был повреждённый корабль-близнец "Олимпик", подменённый ради получения страховки?»
+            </div>
+            <div class="answer-container" id="answer-7">
+                <div class="answer false">
+                    <div class="answer-label false">❌ ОПРОВЕРГНУТО</div>
+                    <p>Теория утверждает, что J.P. Morgan подменил корабли для страхового мошенничества. Однако при исследовании обломков на дне океана нашли клеймо «401» (номер «Титаника»), а не «400» («Олимпик»). Также «Титаник» был застрахован лишь на 2/3 стоимости — невыгодная афера.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.history.com/articles/titanic-sinking-conspiracy-myths-jp-morgan-olympic" target="_blank">History.com — Titanic Conspiracy Theories</a>
+                    <a href="https://www.ripleys.com/stories/the-titanic-never-sank-and-other-conspiracy-theories-surrounding-the-tragic-ocean-liner" target="_blank">Ripley's — The Titanic Never Sank</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-7">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-7"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-7" onclick="revealAnswer(7)">Показать ответ</button>
+                <button class="btn btn-next" id="next-7" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 8 -->
+    <div class="slide" id="slide-8">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">8</div>
+                <div class="progress">8 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧</span>Заговор MI5 против Гарольда Вильсона</h3>
+            <div class="question-text">
+                «Правда ли, что в 1970-х годах MI5 и британские военные готовили переворот против премьер-министра Гарольда Вильсона, считая его советским агентом?»
+            </div>
+            <div class="answer-container" id="answer-8">
+                <div class="answer partial">
+                    <div class="answer-label partial">⚠️ ЧАСТИЧНО</div>
+                    <p>Бывший офицер MI5 Питер Райт утверждал об этом в книге «Spycatcher». MI5 официально отрицает заговор. Однако есть свидетельства, что лорд Маунтбаттен обсуждал возможность «чрезвычайного правительства». Полная правда неизвестна.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.mi5.gov.uk/the-cold-war/the-wilson-plot" target="_blank">MI5 Official — The 'Wilson Plot'</a>
+                    <a href="https://www.bbc.com/news/stories-49939123" target="_blank">BBC — Harold Wilson Soviet spy?</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-8">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-8"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-8" onclick="revealAnswer(8)">Показать ответ</button>
+                <button class="btn btn-next" id="next-8" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 9 -->
+    <div class="slide" id="slide-9">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">9</div>
+                <div class="progress">9 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">🇬🇧🇩🇪</span>Рудольф Гесс — двойник в Шпандау</h3>
+            <div class="question-text">
+                «Правда ли, что заместитель Гитлера Рудольф Гесс, прилетевший в Шотландию в 1941 году, был подменён двойником, который потом 46 лет сидел в тюрьме Шпандау?»
+            </div>
+            <div class="answer-container" id="answer-9">
+                <div class="answer false">
+                    <div class="answer-label false">❌ ОПРОВЕРГНУТО ДНК</div>
+                    <p>В 2019 году ДНК-анализ с вероятностью 99,99% подтвердил, что заключённый в Шпандау был настоящим Гессом. Теория о двойнике оказалась ложной.</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.newscientist.com/article/2191462-exclusive-dna-solves-rudolf-hess-doppelganger-conspiracy-theory/" target="_blank">New Scientist — DNA solves Hess conspiracy</a>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/30685710/" target="_blank">PubMed — DNA analysis</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-9">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-9"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-9" onclick="revealAnswer(9)">Показать ответ</button>
+                <button class="btn btn-next" id="next-9" onclick="nextSlide()">Следующий →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вопрос 10 -->
+    <div class="slide" id="slide-10">
+        <div class="question-card">
+            <div class="question-header">
+                <div class="question-number">10</div>
+                <div class="progress">10 / 10</div>
+            </div>
+            <h3 class="question-title"><span class="flag">�🇧</span>Эксперименты Портон-Даун над солдатами</h3>
+            <div class="question-text">
+                «Правда ли, что британское правительство тайно тестировало нервно-паралитические газы (зарин, VX) на собственных солдатах, не сообщая им о реальной опасности экспериментов?»
+            </div>
+            <div class="answer-container" id="answer-10">
+                <div class="answer true">
+                    <div class="answer-label true">✅ ПРАВДА</div>
+                    <p>С 1916 по 1989 год более 20 000 британских военнослужащих участвовали в экспериментах на секретной базе Портон-Даун. В 1953 году 20-летний авиамеханик Рональд Мэддисон умер от зарина — ему сказали, что это «тест на лекарство от простуды». В 2004 году суд вынес вердикт «незаконное убийство».</p>
+                </div>
+                <div class="sources">
+                    <div class="sources-title">📚 Источники:</div>
+                    <a href="https://www.gov.uk/government/news/the-truth-about-porton-down" target="_blank">Gov.UK — The Truth About Porton Down</a>
+                    <a href="https://www.theguardian.com/uk/1999/sep/03/freedomofinformation.politics" target="_blank">The Guardian — Scandal of nerve gas tests</a>
+                </div>
+            </div>
+            <div class="voting-section" id="voting-10">
+                <h4>🗳️ Голосование участников</h4>
+                <div class="voting-grid" id="voting-grid-10"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-prev" onclick="prevSlide()">← Назад</button>
+                <button class="btn btn-reveal" id="reveal-10" onclick="revealAnswer(10)">Показать ответ</button>
+                <button class="btn btn-next" id="next-10" onclick="nextSlide()">Завершить 🏁</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Финальный экран -->
+    <div class="slide" id="slide-11">
+        <h2>🎉 Квиз завершён!</h2>
+        
+        <div class="tables-container">
+            <!-- Participant Results -->
+            <div class="table-wrapper" id="participantResults" style="display: none;">
+                <h3>🏆 Результаты участников</h3>
+                <table class="results-table" id="resultsTable"></table>
+            </div>
+
+            <!-- Answer Summary -->
+            <div class="table-wrapper">
+                <h3>📋 Правильные ответы</h3>
+                <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Теория</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>🇬🇧 Hillsborough — полиция скрыла правду</td><td><span class="badge true">✅ Правда</span></td></tr>
+                <tr><td>2</td><td>🇬🇧 Кембриджская пятёрка шпионов</td><td><span class="badge true">✅ Правда</span></td></tr>
+                <tr><td>3</td><td>🇬🇧 LIBOR — банки манипулировали</td><td><span class="badge true">✅ Правда</span></td></tr>
+                <tr><td>4</td><td>🇬🇧 Прослушка телефонов Мёрдока</td><td><span class="badge true">✅ Правда</span></td></tr>
+                <tr><td>5</td><td>🇬🇧 Post Office Horizon</td><td><span class="badge true">✅ Правда</span></td></tr>
+                <tr><td>6</td><td>🇬🇧 Смерть доктора Келли</td><td><span class="badge false">❌ Не подтверждено</span></td></tr>
+                <tr><td>7</td><td>🇬🇧 Титаник → Олимпик</td><td><span class="badge false">❌ Опровергнуто</span></td></tr>
+                <tr><td>8</td><td>🇬🇧 MI5 против Вильсона</td><td><span class="badge partial">⚠️ Частично</span></td></tr>
+                <tr><td>9</td><td>🇬🇧🇩🇪 Гесс — двойник</td><td><span class="badge false">❌ Опровергнуто</span></td></tr>
+                <tr><td>10</td><td>�🇧 Эксперименты Портон-Даун</td><td><span class="badge true">✅ Правда</span></td></tr>
+            </tbody>
+        </table>
+            </div>
+        </div>
+        
+        <button class="restart-button" onclick="restart()">Начать заново 🔄</button>
+    </div>
+
+    <div class="keyboard-hint">
+        Навигация: <kbd>←</kbd> <kbd>→</kbd> стрелки | <kbd>Пробел</kbd> показать ответ
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 13; // 0 = start, participant = setup, 1-10 = questions, 11 = end
+        let participants = [];
+        let votes = {}; // {participantName: {1: true, 2: false, ...}}
+        let quizStarted = false; // Flag to track if quiz has started
+        
+        // Correct answers: true means the conspiracy was real/confirmed
+        const correctAnswers = {
+            1: true,   // Hillsborough
+            2: true,   // Cambridge Five
+            3: true,   // LIBOR
+            4: true,   // Murdoch phone hacking
+            5: true,   // Post Office Horizon
+            6: false,  // Dr Kelly (unconfirmed)
+            7: false,  // Titanic/Olympic (debunked)
+            8: false,  // MI5 vs Wilson (partial, counted as false for scoring)
+            9: false,  // Hess double (debunked)
+            10: true   // Porton Down
+        };
+
+        function updateProgressBar() {
+            const progress = (currentSlide / (totalSlides - 1)) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            if (n === 'participant') {
+                document.getElementById('slide-participant').classList.add('active');
+            } else {
+                document.getElementById('slide-' + n).classList.add('active');
+            }
+            updateProgressBar();
+        }
+
+        function nextSlide() {
+            if (currentSlide === 0) {
+                currentSlide = 'participant';
+                showSlide('participant');
+            } else if (currentSlide === 'participant') {
+                currentSlide = 1;
+                showSlide(1);
+            } else if (currentSlide < 11) {
+                currentSlide++;
+                showSlide(currentSlide);
+                if (currentSlide === 11) {
+                    displayResults();
+                }
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide === 'participant') {
+                currentSlide = 0;
+                showSlide(0);
+            } else if (currentSlide === 1) {
+                currentSlide = 'participant';
+                showSlide('participant');
+            } else if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        function addParticipant() {
+            const input = document.getElementById('participantName');
+            const inputValue = input.value.trim();
+            
+            if (!inputValue) return;
+            
+            // Check if input contains commas - if so, split and add multiple participants
+            if (inputValue.includes(',')) {
+                const names = inputValue.split(',')
+                    .map(name => name.trim())
+                    .filter(name => name.length > 0);
+                
+                names.forEach(name => {
+                    if (!participants.includes(name)) {
+                        participants.push(name);
+                        votes[name] = {};
+                    }
+                });
+                
+                updateParticipantList();
+                input.value = '';
+                input.focus();
+            } else {
+                // Single name
+                if (!participants.includes(inputValue)) {
+                    participants.push(inputValue);
+                    votes[inputValue] = {};
+                    updateParticipantList();
+                    input.value = '';
+                    input.focus();
+                }
+            }
+        }
+
+        function quickFillParticipants() {
+            const input = document.getElementById('participantName');
+            input.value = 'Алиса, Аким, Женя, Саша С., Ариша, Саша М, Лиза';
+            input.focus();
+        }
+
+        function removeParticipant(name) {
+            participants = participants.filter(p => p !== name);
+            delete votes[name];
+            updateParticipantList();
+        }
+
+        function updateParticipantList() {
+            const list = document.getElementById('participantList');
+            list.innerHTML = participants.map(name => `
+                <div class="participant-item">
+                    <span>${name}</span>
+                    <button onclick="removeParticipant('${name}')">Удалить</button>
+                </div>
+            `).join('');
+        }
+
+        function startQuiz() {
+            if (participants.length === 0) {
+                alert('Добавьте хотя бы одного участника!');
+                return;
+            }
+            
+            quizStarted = true;
+            
+            // Initialize voting grids for all questions
+            for (let i = 1; i <= 10; i++) {
+                const answerContainer = document.getElementById('answer-' + i);
+                const questionCard = answerContainer.closest('.question-card');
+                const votingSection = document.getElementById('voting-' + i);
+                const questionText = questionCard.querySelector('.question-text');
+                const questionTitle = questionCard.querySelector('.question-title');
+                
+                const grid = document.getElementById('voting-grid-' + i);
+                grid.innerHTML = participants.map(name => `
+                    <div class="voter-item">
+                        <span>${name}</span>
+                        <div class="vote-buttons">
+                            <button class="vote-btn true" onclick="vote('${name}', ${i}, true)">✓ Да</button>
+                            <button class="vote-btn false" onclick="vote('${name}', ${i}, false)">✗ Нет</button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Create top-row immediately with question and voting
+                if (!questionText.parentElement.classList.contains('top-row')) {
+                    const topRow = document.createElement('div');
+                    topRow.className = 'top-row';
+                    
+                    // Insert top-row after question-title
+                    questionTitle.parentNode.insertBefore(topRow, questionTitle.nextSibling);
+                    topRow.appendChild(questionText);
+                    topRow.appendChild(votingSection);
+                }
+                
+                votingSection.classList.add('active');
+            }
+            
+            nextSlide();
+        }
+
+        function vote(participant, questionNum, isTrue) {
+            votes[participant][questionNum] = isTrue;
+            
+            // Update button styling
+            const grid = document.getElementById('voting-grid-' + questionNum);
+            const voterItems = grid.querySelectorAll('.voter-item');
+            
+            voterItems.forEach(item => {
+                const name = item.querySelector('span').textContent;
+                if (name === participant) {
+                    const trueBtn = item.querySelector('.vote-btn.true');
+                    const falseBtn = item.querySelector('.vote-btn.false');
+                    
+                    trueBtn.classList.toggle('selected', isTrue);
+                    falseBtn.classList.toggle('selected', !isTrue);
+                }
+            });
+        }
+
+        function revealAnswer(questionNum) {
+            const answerContainer = document.getElementById('answer-' + questionNum);
+            const questionCard = answerContainer.closest('.question-card');
+            const votingSection = document.getElementById('voting-' + questionNum);
+            
+            answerContainer.classList.add('revealed');
+            document.getElementById('reveal-' + questionNum).style.display = 'none';
+            document.getElementById('next-' + questionNum).classList.add('visible');
+            
+            // Check if top-row already exists
+            const topRow = questionCard.querySelector('.top-row');
+            
+            if (topRow && !questionCard.querySelector('.bottom-row')) {
+                // Create bottom row with answer and sources
+                const bottomRow = document.createElement('div');
+                bottomRow.className = 'bottom-row';
+                
+                const sources = answerContainer.querySelector('.sources');
+                if (sources) {
+                    // Remove sources from answer-container
+                    sources.remove();
+                }
+                
+                topRow.parentNode.insertBefore(bottomRow, topRow.nextSibling);
+                bottomRow.appendChild(answerContainer);
+                if (sources) {
+                    bottomRow.appendChild(sources);
+                }
+            }
+            
+            // Update voting display to show results
+            const correctAnswer = correctAnswers[questionNum];
+            const grid = document.getElementById('voting-grid-' + questionNum);
+            const voterItems = grid.querySelectorAll('.voter-item');
+            
+            voterItems.forEach(item => {
+                const name = item.querySelector('span').textContent;
+                const voteButtons = item.querySelector('.vote-buttons');
+                
+                // Hide buttons
+                voteButtons.style.display = 'none';
+                
+                // Check if user voted and if it's correct
+                const hasVoted = votes[name] && votes[name][questionNum] !== undefined;
+                const isCorrect = hasVoted && votes[name][questionNum] === correctAnswer;
+                
+                // Add appropriate class (no vote = incorrect)
+                if (isCorrect) {
+                    item.classList.add('correct');
+                } else {
+                    item.classList.add('incorrect');
+                }
+            });
+        }
+
+        function calculateScore(participant) {
+            let score = 0;
+            for (let q = 1; q <= 10; q++) {
+                if (votes[participant][q] === correctAnswers[q]) {
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        function displayResults() {
+            if (participants.length === 0) {
+                document.getElementById('participantResults').style.display = 'none';
+                return;
+            }
+
+            const results = participants.map(name => ({
+                name: name,
+                score: calculateScore(name)
+            }));
+
+            // Sort by score descending
+            results.sort((a, b) => b.score - a.score);
+            const maxScore = results[0].score;
+
+            const table = document.getElementById('resultsTable');
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Место</th>
+                        <th>Участник</th>
+                        <th>Правильных ответов</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${results.map((r, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td class="name">${r.name}</td>
+                            <td class="score-cell ${r.score === maxScore ? 'winner' : ''}">${r.score} / 10</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('participantResults').style.display = 'block';
+        }
+
+        function restart() {
+            currentSlide = 0;
+            participants = [];
+            votes = {};
+            quizStarted = false;
+            
+            // Reset all answers
+            for (let i = 1; i <= 10; i++) {
+                const answerContainer = document.getElementById('answer-' + i);
+                const questionCard = answerContainer.closest('.question-card');
+                const votingSection = document.getElementById('voting-' + i);
+                
+                answerContainer.classList.remove('revealed');
+                document.getElementById('reveal-' + i).style.display = 'inline-block';
+                document.getElementById('next-' + i).classList.remove('visible');
+                votingSection.classList.remove('active');
+                
+                // Restore original structure if top-row exists
+                const topRow = questionCard.querySelector('.top-row');
+                const bottomRow = questionCard.querySelector('.bottom-row');
+                
+                if (topRow) {
+                    const questionText = topRow.querySelector('.question-text');
+                    const sources = bottomRow ? bottomRow.querySelector('.sources') : null;
+                    
+                    // Move sources back into answer-container
+                    if (sources) {
+                        answerContainer.appendChild(sources);
+                    }
+                    
+                    // Restore original order
+                    topRow.parentNode.insertBefore(questionText, topRow);
+                    topRow.parentNode.insertBefore(answerContainer, topRow);
+                    topRow.parentNode.insertBefore(votingSection, topRow);
+                    
+                    // Remove wrappers
+                    topRow.remove();
+                    if (bottomRow) bottomRow.remove();
+                }
+                
+                // Reset voting styles
+                const grid = document.getElementById('voting-grid-' + i);
+                if (grid) {
+                    const voterItems = grid.querySelectorAll('.voter-item');
+                    voterItems.forEach(item => {
+                        item.classList.remove('correct', 'incorrect');
+                        const voteButtons = item.querySelector('.vote-buttons');
+                        if (voteButtons) voteButtons.style.display = 'flex';
+                    });
+                }
+            }
+            
+            document.getElementById('participantName').value = '';
+            document.getElementById('participantList').innerHTML = '';
+            document.getElementById('participantResults').style.display = 'none';
+            
+            showSlide(0);
+        }
+
+        // Клавиатурная навигация
+        document.addEventListener('keydown', function(e) {
+            // Disable keyboard shortcuts until quiz starts
+            if (!quizStarted) return;
+            
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                if (currentSlide >= 1 && currentSlide <= 10) {
+                    const answerEl = document.getElementById('answer-' + currentSlide);
+                    if (!answerEl.classList.contains('revealed')) {
+                        revealAnswer(currentSlide);
+                    } else {
+                        nextSlide();
+                    }
+                } else {
+                    nextSlide();
+                }
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Инициализация
+        showSlide(0);
+    </script>
+</body>
+</html>
